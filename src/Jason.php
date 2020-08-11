@@ -11,6 +11,8 @@
 namespace chasegiunta\jason;
 
 use chasegiunta\jason\fields\JasonField as JasonField;
+use chasegiunta\jason\fields\JasonMediumtextField as JasonMediumtextField;
+use chasegiunta\jason\fields\JasonLongtextField as JasonLongtextField;
 
 use Craft;
 use craft\base\Plugin;
@@ -84,6 +86,8 @@ class Jason extends Plugin
             Fields::EVENT_REGISTER_FIELD_TYPES,
             function (RegisterComponentTypesEvent $event) {
                 $event->types[] = JasonField::class;
+                $event->types[] = JasonMediumtextField::class;
+                $event->types[] = JasonLongtextField::class;
             }
         );
 

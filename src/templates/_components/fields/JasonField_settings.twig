@@ -32,22 +32,4 @@
             @toggled="allowRawEditing = $event">
         </jason-switch>
     </div>
-
-    <div class="field">
-        <div class="heading">
-            <label id="fieldType-label" for="fieldType">Field Type</label>
-        </div>
-        <div class="input ltr">
-            <div class="select">
-                <select id="fieldType" name="fieldType">
-                    <option value="TEXT" {{ field['fieldType'] === 'TEXT' ? 'selected' ? '' }}
-                    >TEXT</option>
-                    <option value="MEDIUMTEXT" {{ field['fieldType'] === 'MEDIUMTEXT' ? 'selected' ? '' }}
-                    >MEDIUMTEXT</option>
-                    <option value="LONGTEXT" {{ field['fieldType'] === 'LONGTEXT' ? 'selected' ? '' }}
-                    >LONGTEXT</option>
-                </select>
-            </div>
-        </div>
-    </div>
 </div>

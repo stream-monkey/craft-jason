@@ -49,8 +49,6 @@ class JasonField extends Field
 
     public $allowRawEditing = true;
 
-    public $fieldType = 'TEXT';
-
     // Static Methods
     // =========================================================================
 
@@ -61,7 +59,7 @@ class JasonField extends Field
      */
     public static function displayName(): string
     {
-        return 'JSON (Jason) (w/ field type support)'; 
+        return 'JSON (Jason) (TEXT)'; 
     }
 
     // Public Methods
@@ -91,11 +89,6 @@ class JasonField extends Field
             ['allowRawEditing', 'default', 'value' => 'false'],
         ]);
 
-        $rules = array_merge($rules, [
-            ['fieldType', 'string'],
-            ['fieldType', 'default', 'value' => 'TEXT'],
-        ]);
-
         return $rules;
     }
 
@@ -112,11 +105,6 @@ class JasonField extends Field
      */
     public function getContentColumnType(): string
     {
-        if (in_array($this->fieldType, ['MEDIUMTEXT', 'LONGTEXT'])) {
-            return $this->fieldType;
-        }
-
-        // Default.
         return Schema::TYPE_TEXT;
     }
 
@@ -406,8 +394,7 @@ class JasonField extends Field
                 'id' => $id,
                 'namespacedId' => $namespacedId,
                 'readonly' => $this->readonly,
-                'allowRawEditing' => $this->allowRawEditing,
-                'fieldType' => $this->fieldType,
+                'allowRawEditing' => $this->allowRawEditing
             ]
         );
     }
